@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lenguaje audiovisual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Figtree:wght@400;600&display=swap">
+<style>
+:root{--bg:#0a0d10;--pn:#10161b;--fg:#ebe6da;--mu:#9aa5ab;--ac:#e8a23a;--ln:#26323a;--tl:#3fa7a0;--sd:#06080a;--hd:'Cormorant Garamond',Georgia,serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#ece9e1;--pn:#dedacf;--fg:#14191d;--mu:#505a60;--ac:#9a5a0a;--ln:#c4bfb1;--tl:#1d7771}}
+:root[data-theme="dark"]{--bg:#0a0d10;--pn:#10161b;--fg:#ebe6da;--mu:#9aa5ab;--ac:#e8a23a;--ln:#26323a;--tl:#3fa7a0}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.65 'Figtree',Arial,sans-serif}
+body:after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:gr .5s steps(4) infinite}
+@keyframes gr{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}}
+h1,h2,h3{font-family:var(--hd);font-weight:700;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(2.2rem,4.8vw,3.5rem);margin-bottom:14px}h3{font-size:1.65rem;margin-bottom:4px}
+p{max-width:64ch}.mu{color:var(--mu)}.lede{font-size:1.15rem;color:var(--mu);margin-bottom:30px}
+.sub{margin-top:50px}
+#sd{position:fixed;left:0;top:0;bottom:0;width:244px;background:var(--sd);border-right:1px solid var(--ln);padding:calc(env(safe-area-inset-top,0px) + 22px) 0 18px;display:flex;flex-direction:column;z-index:20}
+.brand{font:italic 500 1.5rem/1.1 var(--hd);padding:0 22px 20px;color:#ebe6da}
+#nv{flex:1;overflow-y:auto;display:flex;flex-direction:column;scrollbar-width:none}
+#nv button{all:unset;cursor:pointer;display:flex;gap:12px;padding:9px 22px;font:600 15px 'Figtree',sans-serif;color:#9aa5ab;border-left:3px solid transparent;transition:background .25s,color .25s}
+#nv button b{color:#e8a23a;font-weight:600;min-width:20px;font-variant-numeric:tabular-nums}
+#nv button:hover{background:#ffffff0d;color:#ebe6da}#nv button.on{color:#ebe6da;border-color:#e8a23a;background:#ffffff0d}
+#tc{padding:14px 22px 0;font:600 15px 'Figtree',sans-serif;color:#e8a23a;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+#mt,#pgb{display:none}
+main{margin-left:244px;padding:44px 46px 60px}
+.s{display:none;max-width:980px}.s.on{display:block;animation:ent .9s ease-out}
+@keyframes ent{from{opacity:0;transform:scale(1.025)}}
+.fr{position:relative;aspect-ratio:16/9;background:#05070a;border-radius:4px;box-shadow:0 0 0 1px var(--ln),0 24px 60px #0007;overflow:hidden}
+.fr:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,#0007)}
+.fr svg{display:block;width:100%;height:100%}.fr.w{aspect-ratio:2.39/1}
+.cap{font-size:13px;color:var(--mu);margin-top:8px;letter-spacing:.03em}
+.tag{position:absolute;left:12px;top:10px;z-index:5;font:600 13px 'Figtree',sans-serif;letter-spacing:.08em;background:#000a;color:#fff;padding:3px 10px;border-radius:2px}
+.row button,button.b{font:600 15px 'Figtree',sans-serif;color:var(--fg);background:none;border:1px solid var(--ln);border-radius:3px;padding:9px 18px;cursor:pointer;transition:all .2s}
+.row button:hover,button.b:hover{border-color:var(--ac)}button.on{background:var(--ac)!important;border-color:var(--ac)!important;color:#14100a!important}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:30px 40px;align-items:start}
+.info{min-height:7.6em}small.k{font:600 13px 'Figtree',sans-serif;color:var(--ac);letter-spacing:.05em}
+dl{display:grid;gap:16px}dt{font:700 1.3rem var(--hd)}dd{color:var(--mu)}
+.big{font:italic 500 clamp(1.6rem,3.4vw,2.3rem)/1.2 var(--hd);border-left:3px solid var(--ac);padding-left:20px;margin-bottom:20px;max-width:24ch}
+.ti{position:absolute;left:34px;bottom:26px;z-index:2;color:#ebe6da}.ti span{font:600 14px 'Figtree',sans-serif;letter-spacing:.14em;color:#e8a23a}.ti h1{font:italic 600 clamp(2.4rem,6.5vw,5rem)/1 var(--hd);margin-top:6px}
+.fr.w:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(transparent 45%,#000b)}
+.sum{margin:36px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px 44px}
+.sum ul{list-style:none;display:grid;gap:12px}.sum li{padding-left:18px;position:relative;color:var(--mu)}.sum li:before{content:"";position:absolute;left:0;top:.7em;width:8px;height:1px;background:var(--ac)}
+.dim{list-style:none;border-top:1px solid var(--ln)}.dim li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--ln)}.dim b{font:700 1.25rem var(--hd)}.dim span{color:var(--mu)}
+.g3{background:linear-gradient(90deg,transparent 33.2%,#fffb 33.3%,transparent 33.5%,transparent 66.5%,#fffb 66.6%,transparent 66.8%),linear-gradient(transparent 33.2%,#fffb 33.3%,transparent 33.5%,transparent 66.5%,#fffb 66.6%,transparent 66.8%);position:absolute;inset:0;opacity:0;transition:opacity .3s;z-index:2}
+#cs{background:linear-gradient(#1e4357,#d98650)}#cs.g .g3{opacity:1}
+.hz{position:absolute;left:0;right:0;bottom:0;background:#0f1b20;border-top:2px solid #0006;transition:top .6s}.sj{position:absolute;height:60%;transform:translate(-50%,-50%);transition:left .6s,top .6s}
+#cs[data-m=c] .hz{top:50%}#cs[data-m=c] .sj{left:50%;top:52%}#cs[data-m=t] .hz{top:66.67%}#cs[data-m=t] .sj{left:66.67%;top:52%}
+.lg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}.lg .fr{aspect-ratio:16/10}.lg p{font-size:14px;color:var(--mu);margin-top:8px}
+.cn{fill:#e8a23a;fill-opacity:.2;stroke:#e8a23a;stroke-width:1}.cb{fill:#d9d3c3}
+.a-pan,.a-tv,.a-dl,.a-tl,.a-zm,.r-pan,.r-tl,.r-t1,.r-t2,.r-t3,.r-d1,.r-d2,.r-d3,.r-z{animation-duration:5s;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-direction:alternate}
+.a-pan{animation-name:kp}.a-tv{animation-name:ktv}.a-dl{animation-name:kdl}.a-tl{animation-name:ktl}.a-zm{animation-name:kzm}.r-pan{animation-name:rp}.r-tl{animation-name:rtl}.r-t1{animation-name:rt1}.r-t2{animation-name:rt2}.r-t3{animation-name:rt3}.r-d1{animation-name:rd1}.r-d2{animation-name:rd2}.r-d3{animation-name:rd3}.r-z{animation-name:rz}
+@keyframes kp{from{transform:rotate(-28deg)}to{transform:rotate(28deg)}}@keyframes ktv{from{transform:translateX(-50px)}to{transform:translateX(50px)}}@keyframes kdl{to{transform:translateY(-32px)}}@keyframes ktl{from{transform:rotate(-24deg)}to{transform:rotate(8deg)}}@keyframes kzm{to{transform:scale(1,.4)}}
+@keyframes rp{from{transform:translateX(160px)}to{transform:translateX(-160px)}}@keyframes rtl{from{transform:translateY(130px)}to{transform:translateY(0)}}
+@keyframes rt1{from{transform:translateX(14px)}to{transform:translateX(-14px)}}@keyframes rt2{from{transform:translateX(40px)}to{transform:translateX(-40px)}}@keyframes rt3{from{transform:translateX(110px)}to{transform:translateX(-110px)}}
+@keyframes rd1{to{transform:scale(1.1)}}@keyframes rd2{to{transform:scale(1.55)}}@keyframes rd3{to{transform:scale(2.3)}}@keyframes rz{to{transform:scale(1.8)}}
+.sec,.wt,.bk,.br{transform-box:fill-box}.sec{transform-origin:50% 100%;animation:spn 6s linear infinite}.wt{transform-origin:50% 0;animation:swg 3s ease-in-out infinite alternate}.bk{transform-origin:50% 50%;animation:bl 5s infinite}.br{transform-origin:50% 100%;animation:brt 3.6s ease-in-out infinite alternate}
+@keyframes spn{to{transform:rotate(360deg)}}@keyframes swg{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes brt{to{transform:scaleY(1.02)}}
+.cld{animation:cl 50s linear infinite alternate}@keyframes cl{to{transform:translateX(500px)}}.bd{animation:fl 26s linear infinite}@keyframes fl{from{transform:translateX(-300px)}to{transform:translateX(1900px)}}
+#lh .hh,#lh .sh,#lh .ray,#lh .bgl{transition:all .5s}#lh .hh{opacity:0}#lh.hard .hh{opacity:1}#lh .sh{opacity:.3;filter:blur(14px)}#lh.hard .sh{opacity:.95;filter:blur(0)}#lh .ray{opacity:.12}#lh.hard .ray{opacity:.35}#lh.hard .bgl{fill:#07090b}
+#cb{border-radius:4px;padding:26px;transition:background-color .6s,color .6s;min-height:380px;display:grid;gap:26px}
+#sw{display:flex;flex-wrap:wrap;gap:10px}#sw button{width:40px;height:40px;border-radius:50%;border:3px solid currentColor;cursor:pointer;padding:0;transition:transform .25s}#sw button.on{transform:scale(1.25);box-shadow:0 0 0 3px currentColor}
+.cm{display:grid;grid-template-columns:130px 1fr 150px;gap:26px;align-items:center}#ci{width:130px;height:130px}
+.ch{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.ch i{font-style:normal;font-size:14px;border:1.5px solid currentColor;border-radius:30px;padding:2px 14px}
+.rm{text-align:center;font-size:13px}#rb{width:80px;height:80px;border:3px solid currentColor;margin:20px auto 14px;transition:transform .6s;background:currentColor;opacity:.9;border-radius:3px}
+#ms{background:#000}.L{position:absolute;inset:0}.L svg{width:100%;height:100%}#B{opacity:0}#O{background:#000;opacity:0}
+.trk{position:relative;display:flex;gap:3px;height:46px;margin:14px 0 6px;overflow:hidden}.trk i{display:flex;align-items:center;justify-content:center;font:600 13px 'Figtree',sans-serif;font-style:normal;color:#10151a;height:100%;border-radius:2px}
+.trk:after{content:"";position:absolute;top:0;bottom:0;width:2px;background:#fff;left:0;animation:ph 8s linear infinite}@keyframes ph{to{left:100%}}
+#sf svg#sfs{transition:filter .8s}#sf.m-inc svg#sfs{filter:brightness(.5) saturate(.6)}#sf.m-asi svg#sfs{filter:grayscale(.85) brightness(.55) sepia(.5)}#sf.m-sil svg#sfs{filter:brightness(.8)}
+.vg{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .6s}#sf.m-inc .vg{opacity:1;background:radial-gradient(ellipse,transparent 40%,#a01010cc);animation:hb 1s infinite}#sf.m-asi .vg{opacity:.9;background:radial-gradient(ellipse,#2a0a0a44 30%,#000d)}
+@keyframes hb{30%{opacity:.4}}
+.lights{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-around;opacity:0;z-index:3;transition:opacity .6s}#sf.m-asi .lights{opacity:1}.lights i{width:14px;height:14px;border-radius:50%;margin-top:8px;animation:bn 1.2s infinite}
+.lights i:nth-child(4n+1){background:#ff4d4d}.lights i:nth-child(4n+2){background:#ffd84d;animation-delay:.3s}.lights i:nth-child(4n+3){background:#4dff88;animation-delay:.6s}.lights i:nth-child(4n){background:#4da6ff;animation-delay:.9s}
+@keyframes bn{50%{opacity:.25}}
+.rad{position:absolute;right:16px;bottom:16px;width:96px;height:auto!important;opacity:0;transition:opacity .5s;z-index:3}#sf.m-doc .rad{opacity:1}.rad .wv{animation:bn 1s infinite}
+.eq{position:absolute;left:14px;bottom:14px;display:flex;gap:3px;align-items:flex-end;height:30px;z-index:3;opacity:0;transition:opacity .4s}#sf.on .eq{opacity:1}.eq i{width:5px;height:100%;background:var(--ac);transform-origin:bottom;animation:eq .5s ease-in-out infinite alternate}.eq i:nth-child(2){animation-delay:.1s}.eq i:nth-child(3){animation-delay:.25s}.eq i:nth-child(4){animation-delay:.05s}.eq i:nth-child(5){animation-delay:.2s}
+@keyframes eq{from{transform:scaleY(.15)}to{transform:scaleY(1)}}
+.fla{position:absolute;inset:0;background:#fff;opacity:0;z-index:4;pointer-events:none}#sf.fx .fla{animation:fla .5s}#sf.fx svg#sfs{animation:shk .4s}@keyframes fla{20%{opacity:.8}}@keyframes shk{20%{transform:translate(-8px,4px)}40%{transform:translate(7px,-5px)}60%{transform:translate(-5px,-3px)}80%{transform:translate(4px,4px)}}
+#pg{justify-content:space-between;max-width:980px;margin-top:40px;padding-top:20px;border-top:1px solid var(--ln)}
+button:disabled{opacity:.3;pointer-events:none}
+#cut{position:fixed;inset:0;z-index:80;background:#000;opacity:0;pointer-events:none;transition:opacity .4s}#cut.k{opacity:1}
+@media(max-width:900px){
+#sd{right:0;bottom:auto;width:auto;flex-direction:row;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top,0px) + 10px) 18px 10px;border-right:0;border-bottom:1px solid var(--ln);background:#06080af2}
+.brand{padding:0;font-size:1.25rem}.brand br{display:none}#tc{display:none}
+#mt{display:flex;align-items:center;gap:10px;font:600 14px 'Figtree',sans-serif;color:#ebe6da;background:none;border:1px solid #33434d;border-radius:30px;padding:7px 14px;cursor:pointer}
+#mt:after{content:"";width:7px;height:7px;border:solid #e8a23a;border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-2px);transition:transform .3s}#sd.open #mt:after{transform:rotate(225deg) translateY(-2px)}
+#nv{position:absolute;left:0;right:0;top:100%;background:#06080a;max-height:0;overflow:hidden;transition:max-height .4s;border-bottom:1px solid var(--ln)}#sd.open #nv{max-height:82vh;overflow-y:auto}#nv button{padding:14px 22px}
+#pgb{display:block;position:absolute;left:0;bottom:-1px;height:2px;background:#e8a23a;transition:width .5s}
+main{margin-left:0;padding:88px 16px 40px}.two,.sum,.cm,.dim li{grid-template-columns:1fr}.lg{grid-template-columns:1fr 1fr}#ci{width:90px;height:90px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+:root[data-theme="light"]{--bg:#ece9e1;--pn:#dedacf;--fg:#14191d;--mu:#505a60;--ac:#9a5a0a;--ln:#c4bfb1;--tl:#1d7771}
+#sd{left:0;right:0;top:0;bottom:auto;width:auto;flex-direction:row;align-items:center;gap:18px;padding:calc(env(safe-area-inset-top,0px) + 10px) clamp(14px,3vw,36px) 10px;border-right:0;border-bottom:1px solid var(--ln);background:#06080aeb;backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:10px;flex:1;padding:0;font-size:1.45rem;white-space:nowrap}
+#tc{padding:0;font-size:13px;opacity:.8}
+#mt{display:flex;align-items:center;gap:10px;font:600 14px 'Figtree',sans-serif;color:#ebe6da;background:#ffffff0d;border:1px solid #33434d;border-radius:30px;padding:8px 16px;cursor:pointer;transition:border-color .2s}
+#mt:hover{border-color:#e8a23a}
+#mt:after{content:"";width:7px;height:7px;border:solid #e8a23a;border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-2px);transition:transform .3s}
+#sd.open #mt:after{transform:rotate(225deg) translateY(-2px)}
+#pgb{display:block;position:absolute;left:0;bottom:-1px;height:2px;background:linear-gradient(90deg,#3fa7a0,#e8a23a);transition:width .5s}
+#nv{position:absolute;left:0;right:0;top:100%;flex:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2px;background:#06080af7;max-height:0;overflow:hidden;padding:0 clamp(14px,3vw,36px);transition:max-height .4s,padding .4s;border-bottom:1px solid transparent}
+#sd.open #nv{max-height:82vh;overflow-y:auto;padding:10px clamp(14px,3vw,36px) 18px;border-bottom-color:var(--ln)}
+#nv button{padding:12px 16px;border-radius:6px}
+main{margin-left:0;padding:92px clamp(16px,4vw,46px) 60px}
+.s,#pg{margin-left:auto;margin-right:auto}
+.sum{grid-template-columns:1fr}.sum h2{max-width:20ch}
+.lg2{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}.lg2 b{font:700 1.15rem var(--hd);display:block}
+.lg2 p,.lg2 span{color:var(--mu);font-size:.97rem}
+.leg{display:flex;flex-wrap:wrap;gap:8px 22px;margin:14px 0 4px;font-size:.93rem;color:var(--mu)}.leg i{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:7px;border-radius:2px}
+.rtl{font:700 1.25rem var(--hd);margin-top:18px}
+@media(max-width:700px){#tc{display:none}.brand span{font-size:1.15rem}.lg2{grid-template-columns:1fr}}
+
+.blk{display:grid;grid-template-columns:190px 1fr;gap:18px 34px;padding:30px 0;border-top:1px solid var(--ln)}
+.bh b{font:700 2.8rem/1 var(--hd);color:var(--ac);display:block}.bh span{font:700 1.5rem var(--hd);display:block;margin-top:6px}.bh p{font-size:.92rem;color:var(--mu);margin-top:4px}
+.cds{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cd{background:var(--pn);border:1px solid var(--ln);border-top:3px solid var(--ac);border-radius:4px;padding:16px 18px}.cd.t{border-top-color:var(--tl)}.cd.w{grid-column:1/-1}
+.cd h4{font:700 1.3rem var(--hd);margin-bottom:4px}.cd p,.cd li{font-size:.98rem;color:var(--mu)}.cd ul{padding-left:18px;display:grid;gap:4px}
+.gh{font:600 13px 'Figtree',sans-serif;letter-spacing:.1em;color:var(--ac);margin:4px 0 10px;text-transform:uppercase}.gh:not(:first-child){margin-top:26px}
+.cl{display:block;font:600 12px 'Figtree',sans-serif;letter-spacing:.09em;text-transform:uppercase;opacity:.75;margin:16px 0 5px}
+.cm{grid-template-columns:120px 1fr 190px}
+.rmw{width:104px;height:104px;border:2px dashed currentColor;margin:8px auto;display:grid;place-items:center}#rb{margin:0!important}
+#A.frz *{animation-play-state:paused!important}#A.frz:after{content:"";position:absolute;inset:10px;border:3px solid #fff;opacity:.8}
+.a-or,.a-gr,.r-gr{animation-duration:5s;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-direction:alternate}.a-or{animation-name:ko}.a-gr{animation-name:kgr}.r-gr{animation-name:rgr}
+@keyframes ko{from{transform:rotate(-80deg)}to{transform:rotate(80deg)}}@keyframes kgr{from{transform:rotate(-6deg)}to{transform:rotate(-36deg)}}@keyframes rgr{from{transform:scale(2.2)}to{transform:scale(1)}}
+@media(max-width:800px){.blk{grid-template-columns:1fr}.cds{grid-template-columns:1fr}.cm{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="gk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b3a4b"/><stop offset="1" stop-color="#e08a4e"/></linearGradient>
+<g id="p">
+<rect x="785" y="620" width="13" height="80" fill="#1b2128"/><rect x="802" y="620" width="13" height="80" fill="#1b2128"/><rect x="782" y="696" width="19" height="6" rx="3" fill="#07090a"/><rect x="799" y="696" width="19" height="6" rx="3" fill="#07090a"/>
+<g class="br">
+<rect x="762" y="540" width="13" height="72" rx="6.5" fill="#7a3125"/><rect x="774" y="534" width="52" height="92" rx="10" fill="#8f3a2c"/>
+<path d="M820 548 L846 598" stroke="#7a3125" stroke-width="13" stroke-linecap="round"/><circle cx="846" cy="604" r="6.5" fill="#e0b48f"/>
+<g class="wt"><path d="M846 604V618" stroke="#c9a227" stroke-width="1.2"/><circle cx="846" cy="624" r="7" fill="#d9b43c" stroke="#8a6d12"/><circle cx="846" cy="624" r="4.6" fill="#f4ecd2"/><path d="M846 624V621.5" stroke="#222" stroke-width=".8"/><g class="sec"><path d="M846 624V619.6M845.4 624h1.2" stroke="#b3261e" stroke-width=".7"/></g></g>
+<rect x="795" y="518" width="10" height="18" fill="#d2a27c"/><circle cx="800" cy="505" r="22" fill="#e0b48f"/>
+<path d="M777.5 503a22.5 22.5 0 0 1 45 0q-10-11-22.5-9t-22.5 9z" fill="#1a120d"/>
+<g class="bk"><circle cx="791" cy="507" r="1.9" fill="#222"/><circle cx="809" cy="507" r="1.9" fill="#222"/></g><path d="M786 501.5l9-1.5M805 500l9 1.5M800 508v6l-2 1M794 518q6 4 12 0" stroke="#4a2c1d" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+</g></g></defs></svg>
+
+<aside id="sd"><div class="brand"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e8a23a" stroke-width="1.5" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2l4.5 8M21.5 8.5L13 10M20 17l-6.5-5M12 22l-4.5-8M4 17l3-8.5M2.5 8.5L11 10"/></svg><span>Lenguaje audiovisual</span></div><button id="mt" aria-label="Abrir menú de bloques">Presentación</button><nav id="nv" aria-label="Bloques"></nav><div id="tc">00:00:00:00</div><div id="pgb"></div></aside>
+<div id="cut"></div>
+
+<main>
+<section class="s" id="hero">
+<div class="fr w"><svg id="hs" data-r="2.39" viewBox="0 0 1912 800"></svg><div class="ti"><span>CINE · TELEVISIÓN · VIDEO</span><h1>Lenguaje audiovisual</h1></div></div>
+<div class="sum"><div><h2>Una forma de contar que se ve y se escucha</h2><p>En el cine, la televisión y el video, cada decisión sobre la cámara, la luz, el color, el montaje y el sonido influye en lo que el espectador siente y entiende. Como cualquier idioma, el lenguaje audiovisual tiene reglas, y conocerlas permite interpretar mejor lo que vemos.</p></div></div>
+<div class="row"><button class="b on" id="go">Empezar</button></div>
+</section>
+
+<section class="s" id="que">
+<h2>Cómo se construye un mensaje audiovisual: rasgos, dimensiones y elementos</h2>
+<p class="lede">El lenguaje audiovisual es un conjunto de símbolos y normas que permite comunicar mediante imagen y sonido, como ocurre en el cine, la televisión, el video y los medios digitales. Igual que un idioma, tiene sus «palabras» (elementos), su gramática (normas) y sus recursos de estilo. Quien conoce esas reglas no solo mira las imágenes: las interpreta.</p>
+<div class="blk"><div class="bh"><b>01</b><span>Rasgos</span><p>Qué lo hace distinto de otros lenguajes</p></div>
+<div class="cds">
+<div class="cd"><h4>Multisensorial</h4><p>Combina lo visual y lo auditivo, y las imágenes tienen más peso que las palabras. Antes de que alguien hable, ya sabemos dónde estamos.</p></div>
+<div class="cd"><h4>Global</h4><p>Imagen, sonido y movimiento se perciben al mismo tiempo y producen una experiencia unificada, no una suma de partes separadas.</p></div>
+<div class="cd"><h4>Sintético</h4><p>Los elementos se encadenan como un mosaico: cada pieza solo tiene sentido junto a las demás.</p></div>
+<div class="cd"><h4>Emocional</h4><p>Activa la sensibilidad antes que el intelecto: primero sentimos y después comprendemos.</p></div>
+<div class="cd w t"><p class="big" style="max-width:none;margin:0 0 4px">Opera de la imagen a la emoción y de la emoción a la idea.</p><p>Eisenstein, uno de los pioneros de la cinematografía.</p></div>
+</div></div>
+<div class="blk"><div class="bh"><b>02</b><span>Dimensiones</span><p>Las partes del idioma. Elige una.</p></div>
+<div><div class="row" id="dm" style="margin-top:0"></div>
+<div class="cd info" aria-live="polite"><small class="k" id="dS"></small><h4 id="dT" style="font-size:1.6rem"></h4><p id="dP"></p><p id="dE" style="margin-top:8px;color:var(--ac)"></p></div></div></div>
+<div class="blk"><div class="bh"><b>03</b><span>Elementos</span><p>Con qué se construye cada mensaje</p></div>
+<div><div class="gh">Las imágenes</div>
+<p class="mu" style="margin-bottom:12px">Se forman con puntos, líneas, formas y colores. Nunca son la realidad misma, porque el encuadre y la luz la modifican.</p>
+<div class="cds">
+<div class="cd"><h4>Iconicidad</h4><p>Según cuánto se parezcan a la realidad: figurativas (una fotografía), esquemáticas (un icono que señala las escaleras) o abstractas (un texto).</p></div>
+<div class="cd"><h4>Denotación y connotación</h4><p>Denotar es decir lo que la imagen muestra; connotar es lo que sugiere. Por eso casi siempre son polisémicas: admiten más de una interpretación.</p></div>
+<div class="cd"><h4>Simple o compleja</h4><p>Las complejas requieren más tiempo de análisis, aunque su complejidad no siempre depende de tener muchos elementos.</p></div>
+<div class="cd"><h4>Original o redundante</h4><p>Una imagen demasiado original es difícil de interpretar; un estereotipo (algo muy conocido) se reconoce al instante.</p></div></div>
+<div class="gh">Los sonidos</div>
+<p class="mu" style="margin-bottom:12px">No son un adorno: se planean desde el principio y cada uno cumple una función. Puedes escucharlos en la sección de sonido.</p>
+<div class="cds">
+<div class="cd t"><h4>Música</h4><p>Crea ambientes y debe conectar con lo que se quiere comunicar.</p></div>
+<div class="cd t"><h4>Efectos</h4><p>Marcan un momento, sorprenden o dan realismo.</p></div>
+<div class="cd t"><h4>Palabras</h4><p>Voz y texto que fijan o amplían el sentido de la imagen.</p></div>
+<div class="cd t"><h4>Silencio</h4><p>También comunica: hace que lo que se ve cobre más peso.</p></div></div></div></div>
+<div class="blk"><div class="bh"><b>04</b><span>Para qué sirve</span><p>Funciones y usos</p></div>
+<div><div class="cds">
+<div class="cd"><h4>Informar y formar</h4><p>Mostrar, dar testimonio y enseñar.</p></div>
+<div class="cd"><h4>Recrear y expresar</h4><p>Entretener y transmitir emociones e ideas.</p></div>
+<div class="cd w"><h4>Sugerir</h4><p>La publicidad se relaciona con productos y cosas; la propaganda, con las ideas y los valores de las personas.</p></div>
+<div class="cd w t"><h4>En la educación</h4><ul><li>Acelerar un fenómeno lento: una semilla que germina en segundos.</li><li>Alargar uno rápido: el aleteo de un colibrí.</li><li>Ver lo inaccesible o invisible: el espacio o el infrarrojo.</li><li>Repetir un hecho cuantas veces haga falta.</li></ul></div>
+<div class="cd w"><p style="color:var(--fg)"><b>Con ojo crítico:</b> consumir imágenes de forma masiva, dispersa y sin reflexionar puede generar alienación, es decir, dejar de analizar lo que vemos.</p></div>
+</div></div></div>
+</section>
+
+<section class="s" id="planos">
+<h2>Planos: qué tan cerca está la cámara</h2>
+<p class="lede">El plano se puede entender de dos formas. En el tiempo, es lo que la cámara graba desde que empieza hasta que se detiene. En el espacio, es lo que cabe dentro del encuadre, es decir, qué tan cerca está la cámara. Elige un plano: a la izquierda se ve la escena completa con el recuadro dorado que marca el encuadre; a la derecha, lo que realmente llega a la pantalla.</p>
+<div class="two"><div><div class="fr"><svg id="pw" viewBox="0 0 1600 900"></svg></div><p class="cap">La escena completa y el encuadre de la cámara</p></div><div><div class="fr"><svg id="ps" viewBox="0 0 1600 900"></svg></div><p class="cap">Lo que registra la cámara</p></div></div>
+<div class="row" id="pb"></div>
+<div class="info" aria-live="polite"><small class="k" id="pt"></small><h3 id="pn"></h3><p id="px"></p></div>
+<p class="mu" style="margin-top:10px">Los planos se agrupan según su función: los descriptivos ubican, los narrativos cuentan la acción y los expresivos muestran la emoción. Una comparación útil: en una frase, el plano general es el sujeto, el plano medio es el verbo y el primer plano es el adjetivo.</p>
+</section>
+
+<section class="s" id="angulos">
+<h2>Ángulos: desde dónde mira la cámara</h2>
+<p class="lede">El ángulo es la posición desde la que la cámara mira al personaje, y cambia lo que ese personaje transmite. A la izquierda se ve dónde está la cámara; a la derecha, lo que registra.</p>
+<div class="two">
+<div><div class="fr"><svg viewBox="0 0 400 225"><rect width="400" height="225" fill="#0b1115"/><path d="M0 190H400" stroke="#3a4a54"/><use href="#p" transform="translate(300 190) scale(.55) translate(-800 -700)"/><g id="ac" style="transition:transform .8s"><path class="cn" d="M10 0L232 -44V44Z"/><rect class="cb" x="-12" y="-9" width="24" height="18" rx="3"/><path class="cb" d="M12 -6L22 -12V12L12 6Z"/></g></svg></div><p class="cap">Vista lateral: dónde está la cámara</p></div>
+<div><div class="fr"><svg viewBox="0 0 400 225"><defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14304a"/><stop offset="1" stop-color="#e08a4e"/></linearGradient></defs><rect width="400" height="225" fill="url(#g2)"/><g id="ag" style="transition:transform .8s"><path d="M-10 130L70 78 150 130 240 60 330 130 410 92V130Z" fill="#223b4a"/><rect x="-10" y="130" width="420" height="400" fill="#0f1b20"/><path d="M-10 130H410" stroke="#e08a4e" stroke-width="2" opacity=".6"/></g><use id="au" href="#p" style="transition:transform .8s"/></svg></div><p class="cap">Lo que ve la cámara</p></div>
+</div>
+<div class="row" id="ab"><button class="on">Normal</button><button>Picado</button><button>Contrapicado</button></div>
+<h3 id="at"></h3><p id="ax"></p>
+<p class="mu" style="margin-top:12px">La inclinación lateral de la imagen añade inestabilidad e inseguridad, y se usa con frecuencia en la cámara subjetiva, que muestra lo que ve el personaje.</p>
+</section>
+
+<section class="s" id="composicion">
+<h2>Composición: dónde poner las cosas</h2>
+<p class="lede">La composición es la forma en que se distribuyen los elementos dentro del encuadre. La regla más conocida es la de los tercios: se divide la pantalla en tres partes iguales a lo ancho y a lo alto.</p>
+<div class="two">
+<div class="fr" id="cs" data-m="c"><div class="hz"></div><svg class="sj" viewBox="760 470 80 240"><use href="#p"/></svg><div class="g3"></div></div>
+<div>
+<div class="row" style="margin-top:0"><button class="on" id="c1">Centrado</button><button id="c2">Regla de los tercios</button><button id="c3">Cuadrícula</button></div>
+<p>Con la figura en el centro y el horizonte a media altura, el encuadre se ve estable pero monótono. Con la regla de los tercios, los personajes se ubican en las intersecciones de las líneas y el horizonte no divide la imagen en dos mitades iguales.</p>
+<p class="mu" style="margin-top:12px">El aire es el espacio libre entre el sujeto y el borde del encuadre. La simetría da estabilidad pero puede ser monótona; la asimetría es más dinámica y crea tensión.</p>
+</div></div>
+<h3 style="margin-top:44px">Las líneas también comunican</h3>
+<div class="lg" id="lg"></div>
+</section>
+
+<section class="s" id="camara">
+<h2>Movimientos de cámara</h2>
+<p class="lede">En los primeros años del cine la cámara casi no se movía y todo dependía de la expresión de los actores. Hoy el movimiento forma parte del mensaje. Puede ser físico, cuando se mueve el equipo, u óptico, cuando solo se mueve la lente. Elige un movimiento: a la izquierda se ve qué hace la cámara y a la derecha, cómo queda la imagen.</p>
+<div class="row" id="mb"></div>
+<div id="mp"></div>
+<h3 class="sub">Equipos para lograr movimientos profesionales</h3>
+<div class="cds" style="margin-top:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+<div class="cd t"><h4>Steadycam</h4><p>Estabilizador con arnés: el operador se mueve libremente y la imagen no vibra. Ideal para tomas subjetivas y libres.</p></div>
+<div class="cd t"><h4>Grúa o pluma</h4><p>Brazo articulado que eleva la cámara por encima de la acción. Muy usado en deportes y grandes eventos.</p></div>
+<div class="cd t"><h4>Dron (flying camera)</h4><p>Dispositivo aéreo manejado por control remoto, para panorámicas de difícil acceso.</p></div>
+</div>
+</section>
+
+<section class="s" id="luz">
+<h2>Luz y color</h2>
+<p class="lede">La luz no solo permite ver: también resalta o esconde formas y crea una atmósfera.</p>
+<div class="two">
+<div><div class="fr"><svg id="lh" viewBox="0 0 400 225"><defs><radialGradient id="hg" cx=".2" cy=".28" r=".85"><stop offset="0" stop-color="#ffe7c9"/><stop offset=".35" stop-color="#d9a67a"/><stop offset=".62" stop-color="#1a0f0a"/></radialGradient><radialGradient id="sg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#f3d6b8"/><stop offset="1" stop-color="#c79872"/></radialGradient></defs><rect class="bgl" width="400" height="225" fill="#1a2329"/><ellipse class="sh" cx="335" cy="132" rx="44" ry="66" fill="#000"/><polygon class="ray" points="58,100 230,50 230,200" fill="#ffd9a0"/><circle cx="48" cy="100" r="14" fill="#ffd9a0"/><rect x="40" y="112" width="16" height="40" fill="#555"/><path d="M170 225Q175 170 250 165Q325 170 330 225Z" fill="#2b3a46"/><path class="hh" d="M170 225Q175 170 250 165V225Z" fill="#000" opacity=".1"/><rect x="235" y="150" width="30" height="24" fill="#c79872"/><circle cx="250" cy="100" r="50" fill="url(#sg)"/><circle class="hh" cx="250" cy="100" r="50" fill="url(#hg)"/><path class="hh" d="M250 50A50 50 0 0 1 250 150C226 128 226 72 250 50Z" fill="#050302" opacity=".9"/><ellipse class="hh" cx="236" cy="95" rx="9" ry="5" fill="#2a140c" opacity=".7"/><path class="hh" d="M253 103l12 15-12 2z" fill="#1a0c06" opacity=".7"/><circle cx="235" cy="96" r="3" fill="#2a1a12"/><circle cx="265" cy="96" r="3" fill="#2a1a12"/><path d="M250 100v14l-4 2M238 128q12 7 24 0" stroke="#5a3a28" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div></div>
+<div>
+<div class="row" style="margin-top:0"><button class="on" id="l1">Luz suave</button><button id="l2">Luz dura</button></div>
+<p id="lt"></p>
+</div></div>
+<h3 class="sub">Cada color transmite una emoción</h3>
+<p class="mu" style="margin-bottom:16px">Los colores producen sentimientos y sensaciones de forma inconsciente. Se dividen en <b>cálidos</b> (excitan y parecen acercar) y <b>fríos</b> (calman y parecen alejar). Elige uno: la sección toma su tono y la tarjeta muestra qué transmite, dónde se usa y cómo cambia la sensación del espacio.</p>
+<div id="cb"><div id="sw"></div><div class="cm"><svg id="ci" viewBox="0 0 120 120"></svg><div><small class="k" id="cT" style="color:inherit;opacity:.8"></small><h3 id="cN" style="font-size:2.4rem"></h3><p id="cD"></p><b class="cl">Lo que hace sentir</b><div class="ch" id="cC" style="margin-top:0"></div><b class="cl">Dónde se usa</b><p id="cX"></p></div><div class="rm"><b class="cl" style="margin-top:0">Efecto en el espacio</b><div class="rmw"><div id="rb"></div></div><span id="rl"></span><p style="font-size:12px;margin-top:6px;opacity:.75">La línea punteada es el tamaño real.</p></div></div></div>
+</section>
+
+<section class="s" id="montaje">
+<h2>Montaje y ritmo</h2>
+<p class="lede">Las tomas se unen mediante signos de puntuación visuales, que indican cómo se pasa de un plano a otro. Elige uno y observa cómo se produce el paso del plano A al plano B.</p>
+<div class="two">
+<div class="fr" id="ms"><div class="L" id="A"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" id="sa"></svg></div><div class="L" id="B"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" id="sbn"></svg></div><div class="L" id="O" style="pointer-events:none"></div><div class="tag" id="hud">Plano A</div></div>
+<div>
+<div class="row" id="tb" style="margin-top:0"><button data-t="corte">Corte en seco</button><button data-t="fund">Fundido en negro</button><button data-t="encad">Encadenado</button><button data-t="barr">Barrido</button><button data-t="cort">Cortinilla</button><button data-t="aper">Apertura en negro</button><button data-t="desenf">Desenfoque</button><button data-t="cong">Congelación</button></div>
+<h3 id="tn">Corte en seco</h3><p id="tx">Cambia de plano directamente, sin ningún elemento intermedio. Es el signo de puntuación más usado.</p>
+</div></div>
+<h3 class="sub">El ritmo: qué tan seguido cambia la imagen</h3>
+<p class="lede" style="margin-bottom:18px">El ritmo depende de qué tan seguido cambia la imagen, como en una canción que puede ser rápida o lenta. Si el plano cambia cada segundo, el ritmo es rápido; si se mantiene mucho tiempo en la misma toma, es lento.</p>
+<div class="two">
+<div><div class="fr"><svg id="r1" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice"></svg><div class="tag" id="r1t">Cortes: 0</div></div><h3 style="margin-top:12px">Ritmo rápido</h3><p class="mu">La imagen cambia cada segundo, con muchos planos cortos. Transmite emoción, tensión y velocidad. Es típico de una persecución, un videoclip o un tráiler.</p></div>
+<div><div class="fr"><svg id="r2" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice"></svg><div class="tag" id="r2t">Cortes: 0</div></div><h3 style="margin-top:12px">Ritmo lento</h3><p class="mu">La imagen cambia cada cuatro segundos, con pocos planos y más largos. Transmite calma, tristeza o contemplación. Es típico de un paisaje, una escena emotiva o un documental tranquilo.</p></div></div>
+<p class="mu" style="margin-top:16px">Las dos pantallas muestran lo mismo; solo cambia cuánto dura cada plano. Si los planos son demasiado cortos, cuesta entender la información; si son demasiado largos, el espectador pierde el interés.</p>
+</section>
+
+<section class="s" id="sonido">
+<h2>Sonido y significado</h2>
+<p class="lede">La música y los efectos no son un adorno: se planean desde el principio y cada uno cumple una función concreta. Sube el volumen y escucha cómo cambia la misma imagen con cada sonido.</p>
+<div class="two">
+<div><div class="fr" id="sf"><svg id="sfs" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice"></svg><div class="vg"></div><div class="lights" id="lts"></div><svg class="rad" viewBox="0 0 70 56"><rect x="6" y="14" width="58" height="38" rx="5" fill="#8f3a2c" stroke="#14100a" stroke-width="2"/><circle cx="24" cy="33" r="11" fill="#14100a"/><circle cx="24" cy="33" r="6" fill="#3a2a22"/><rect x="43" y="22" width="15" height="4" fill="#e8a23a"/><rect x="43" y="30" width="15" height="4" fill="#e8a23a"/><path d="M14 14L40 2" stroke="#ccc" stroke-width="2"/><path class="wv" d="M58 8q8 6 0 12M63 4q12 10 0 20" stroke="#e8a23a" stroke-width="2" fill="none"/></svg><div class="eq"><i></i><i></i><i></i><i></i><i></i></div><div class="fla"></div><div class="tag" id="sh">Silencio</div></div><p class="cap">La imagen es siempre la misma. Cambia solo el sonido.</p></div>
+<div><div class="row" id="sb" style="margin-top:0"></div><h3 id="sT"></h3><p id="sX"></p></div></div>
+<div class="two sub"><div><p class="big">Dos imágenes juntas crean una tercera totalmente diferente.</p></div><p class="mu">El significado de cada plano depende del que va antes y del que va después (idea de Eisenstein). Por eso el montaje también comunica, y por eso existen recursos estilísticos que modifican el significado de lo que vemos.</p></div>
+<h3 class="sub">Recursos que cambian lo que vemos</h3>
+<div class="row" id="rbt"></div>
+<div class="two"><div class="fr" id="rf"></div><div><h3 id="rT"></h3><p id="rX"></p></div></div>
+</section>
+
+<section class="s" id="otros">
+<h2>Otros conceptos para completar</h2>
+<p class="lede">Ideas de la lectura que no cabían en las secciones anteriores, explicadas en pocas palabras.</p>
+<div class="gh">La cámara y la lente</div>
+<div class="cds">
+<div class="cd"><h4>Profundidad de campo</h4><p>Qué tan nítido se ve lo que rodea al sujeto. Si casi todo se ve claro, hay gran profundidad; si solo el sujeto está nítido y el resto borroso, hay poca.</p></div>
+<div class="cd"><h4>Distancia focal</h4><p>Característica de cada lente. El gran angular abarca mucho espacio; el teleobjetivo abarca poco y acerca lo lejano. El zoom permite pasar de uno a otro.</p></div>
+</div>
+<div class="gh">Continuidad y estructura</div>
+<div class="cds">
+<div class="cd t"><h4>Raccord (continuidad)</h4><p>Cuidar que las tomas encajen entre sí para que no se note el salto: misma dirección de movimiento, mismo vestuario, misma luz y un orden de tiempo coherente.</p></div>
+<div class="cd t"><h4>Toma, escena y secuencia</h4><p>Toma: lo que se graba de una sola vez. Escena: parte con unidad de lugar y tiempo. Secuencia: conjunto de tomas con unidad narrativa.</p></div>
+</div>
+<div class="gh">Luz y texto</div>
+<div class="cds">
+<div class="cd"><h4>Temperatura de color</h4><p>Las luces de amanecer, atardecer, vela o bombillo se ven rojizas; la del mediodía se ve azulada. El balance de blancos le indica a la cámara cuál es el blanco.</p></div>
+<div class="cd"><h4>Textos y gráficos</h4><p>Palabras sobre la imagen que aclaran su significado, dan más información, muestran una marca o resumen una idea con un eslogan.</p></div>
+</div>
+<div class="gh">Trucos y recursos extra</div>
+<div class="cds">
+<div class="cd t"><h4>Trucos</h4><p>Efectos que crean mundos imposibles: apariciones y desapariciones (registro intermitente), secuencias hacia atrás (montaje inverso), maquetas y escenarios proyectados, y el cromakey para mezclar imágenes.</p></div>
+<div class="cd t"><h4>Otros recursos estilísticos</h4><p>Hipérbole (exagerar), personificación (dar rasgos humanos a objetos o animales), contradicción (mostrar algo opuesto) y repetición de elementos.</p></div>
+</div>
+<div class="gh">Datos para recordar</div>
+<div class="cds">
+<div class="cd"><h4>Cuadros por segundo</h4><p>Cine: 24. Televisión: 30.</p></div>
+<div class="cd"><h4>Formato de imagen</h4><p>TV tradicional: 4:3. Alta definición: 16:9, más parecido al cine.</p></div>
+<div class="cd"><h4>Primeras proyecciones</h4><p>Los hermanos Lumière las hicieron en París, en 1895.</p></div>
+<div class="cd"><h4>Montaje y edición</h4><p>Son lo mismo: unir y ordenar los planos. Antes se cortaba la cinta con tijeras; hoy es un proceso electrónico. Una película tiene en promedio unos 1500 planos.</p></div>
+</div>
+</section>
+
+<div class="row" id="pg"><button class="b" id="bk">Anterior</button><button class="b on" id="fw">Siguiente</button></div>
+</main>
+
+<script>
+const $=s=>document.querySelector(s),RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const SC='<defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10283a"/><stop offset=".55" stop-color="#3b6a78"/><stop offset="1" stop-color="#e98b4f"/></linearGradient><radialGradient id="gl"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".9"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient></defs><rect x="-700" y="-300" width="3000" height="1100" fill="url(#sk)"/><circle cx="1180" cy="640" r="420" fill="url(#gl)"/><circle cx="1180" cy="640" r="70" fill="#ffe3b0"/><g class="cld"><ellipse cx="200" cy="240" rx="180" ry="24" fill="#fff" opacity=".14"/><ellipse cx="330" cy="264" rx="120" ry="18" fill="#fff" opacity=".14"/><ellipse cx="900" cy="170" rx="200" ry="26" fill="#fff" opacity=".12"/></g><g class="bd" fill="none" stroke="#0b1a25" stroke-width="3" stroke-linecap="round"><path d="M0 330q10-12 20 0q10-12 20 0"/><path d="M60 360q8-10 16 0q8-10 16 0"/></g><path d="M-600 700V560L-300 500 0 560 180 480 330 560 520 450 760 590 980 470 1250 600 1450 500 1600 560 1900 520 2200 600V700Z" fill="#3a5666"/><path d="M-600 700V630L-300 580 0 620 260 560 480 640 760 580 1040 650 1340 590 1600 640 1900 600 2200 650V700Z" fill="#223b4a"/><rect x="-700" y="700" width="3000" height="500" fill="#0f1c22"/><path d="M700 1200H900L830 700H770Z" fill="#1a262c"/><path d="M800 1200V700" stroke="#3a4a54" stroke-width="5" stroke-dasharray="40 40"/><use href="#p"/>';
+const SB='<defs><linearGradient id="nk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#040913"/><stop offset="1" stop-color="#1d4252"/></linearGradient></defs><rect x="-700" y="-300" width="3000" height="1100" fill="url(#nk)"/><g fill="#dbe8ee"><circle cx="300" cy="160" r="3"/><circle cx="620" cy="90" r="2"/><circle cx="900" cy="200" r="3"/><circle cx="1300" cy="110" r="2"/><circle cx="1500" cy="240" r="3"/><circle cx="120" cy="330" r="2"/></g><circle cx="430" cy="270" r="90" fill="#eaf2f5"/><path d="M-600 700V600L-200 520 200 610 600 500 1000 620 1400 540 1800 620 2200 560V700Z" fill="#0d1c26"/><rect x="-700" y="700" width="3000" height="500" fill="#070d12"/><rect x="1040" y="560" width="260" height="150" fill="#101c24"/><path d="M1020 560L1170 470 1320 560Z" fill="#0a131a"/><rect x="1090" y="600" width="54" height="60" fill="#ffcf70"/><rect x="1190" y="600" width="54" height="60" fill="#ffcf70" opacity=".8"/><circle cx="1117" cy="630" r="120" fill="#ffcf70" opacity=".12"/>';
+$('#hs').innerHTML=$('#ps').innerHTML=$('#sa').innerHTML=$('#sfs').innerHTML=SC;$('#sbn').innerHTML=SB;$('#r1').innerHTML=$('#r2').innerHTML=SC;$('#pw').innerHTML=SC+'<path id="fo" fill="#000" fill-opacity=".62" fill-rule="evenodd"/><rect id="fk" fill="none" stroke="#e8a23a" stroke-width="3" vector-effect="non-scaling-stroke"/>';
+function tw(el,to,ms){const R=+(el.dataset.r||16/9),f=el._c||[800,450,900],s=performance.now();cancelAnimationFrame(el._r);(function r(n){let k=Math.min(1,(n-s)/(RM?1:ms));k=1-(1-k)**3;const c=f.map((v,i)=>v+(to[i]-v)*k);el._c=c;const h=c[2],w=h*R;el.setAttribute('viewBox',`${c[0]-w/2} ${c[1]-h/2} ${w} ${h}`);if(el.id=='ps'){const x=c[0]-w/2,y=c[1]-h/2;$('#fo').setAttribute('d',`M-700 -300H2300V1100H-700ZM${x} ${y}h${w}v${h}h${-w}Z`);const k=$('#fk');k.setAttribute('x',x);k.setAttribute('y',y);k.setAttribute('width',w);k.setAttribute('height',h)}if(k<1)el._r=requestAnimationFrame(r)})(s)}
+function hero(){const h=$('#hs');h._c=[800,560,820];tw(h,[800,590,360],9000)}
+/* planos */
+const P=[[800,450,900,'Gran plano general','Descriptivo','Muestra un escenario muy amplio. Sirve para ubicar al espectador o para resaltar la soledad y la pequeñez del personaje. No conviene abusar de él porque se pierden los detalles.'],
+[800,595,450,'Plano general','Descriptivo','El personaje se distingue bien dentro del espacio: indica quién actúa y dónde. Necesita más tiempo en pantalla para que el espectador lea todo lo que aparece.'],
+[800,592,250,'Plano entero','Narrativo','De la cabeza a los pies. Muestra la acción del cuerpo completo y permite apreciar su aspecto general.'],
+[800,570,190,'Plano americano','Narrativo y expresivo','Corta a la altura de las rodillas, o algo por debajo. Interesan la cara y las manos. Se asocia al cine western.'],
+[800,551,150,'Plano medio','Narrativo','Muestra al personaje de la cintura hacia arriba. Es el plano más usado: presenta la acción, deja ver algo de emoción y da un ritmo dinámico.'],
+[800,520,90,'Primer plano','Expresivo','Muestra la cara y los hombros. Destaca las emociones y los sentimientos. Suele durar poco y se intercala con otros planos.'],
+[800,509,48,'Primerísimo primer plano','Expresivo','Va de la frente a la barbilla. Es la máxima cercanía y capta lo más íntimo del personaje.'],
+[846,615,36,'Plano detalle','Según el contexto','Muestra un objeto o una parte del cuerpo; aquí, el reloj. Atrae la atención sobre algo que de otro modo pasaría inadvertido.']];
+$('#pb').innerHTML=P.map(p=>`<button>${p[3]}</button>`).join('');
+function sp(i){const d=P[i];tw($('#ps'),d,900);$('#pn').textContent=d[3];$('#pt').textContent=d[4];$('#px').textContent=d[5];document.querySelectorAll('#pb button').forEach((b,j)=>b.classList.toggle('on',i==j))}
+document.querySelectorAll('#pb button').forEach((b,i)=>b.onclick=()=>sp(i));sp(0);
+/* ángulos */
+const A=[['Ángulo normal','La cámara está a la altura de los ojos. Transmite normalidad y no añade un valor expresivo propio.','translate(0,0)','translate(200px,205px) scale(.8) translate(-800px,-700px)','translate(70px,78px) rotate(0deg)'],
+['Ángulo picado','La cámara mira desde arriba hacia abajo. El personaje se ve más pequeño que su entorno y transmite inferioridad, debilidad o sumisión.','translate(0,-120px)','translate(200px,186px) scale(.34) translate(-800px,-700px)','translate(70px,22px) rotate(13.7deg)'],
+['Ángulo contrapicado','La cámara mira desde abajo hacia arriba. El personaje se ve engrandecido y transmite fuerza y poder.','translate(0,100px)','translate(200px,256px) scale(1.22) translate(-800px,-700px)','translate(70px,172px) rotate(-22.2deg)']];
+function an(i){const a=A[i];$('#at').textContent=a[0];$('#ax').textContent=a[1];$('#ag').style.transform=a[2];$('#au').style.transform=a[3];$('#ac').style.transform=a[4];document.querySelectorAll('#ab button').forEach((b,j)=>b.classList.toggle('on',i==j))}
+document.querySelectorAll('#ab button').forEach((b,i)=>b.onclick=()=>an(i));an(0);
+/* composición */
+const cs=$('#cs');function cm(m){cs.dataset.m=m;$('#c1').classList.toggle('on',m=='c');$('#c2').classList.toggle('on',m=='t');if(m=='t')cs.classList.add('g'),$('#c3').classList.add('on')}
+$('#c1').onclick=()=>cm('c');$('#c2').onclick=()=>cm('t');$('#c3').onclick=()=>{cs.classList.toggle('g');$('#c3').classList.toggle('on')};
+const LG=[['Horizontales','Transmiten paz, quietud y serenidad; a veces, muerte.','<rect width="160" height="100" fill="#1b3a4b"/><rect y="46" width="160" height="54" fill="#2a5666"/><rect y="62" width="160" height="38" fill="#1f4350"/><path d="M0 46H160M0 62H160" stroke="#e08a4e" stroke-width="2"/>'],
+['Verticales','Transmiten estabilidad, quietud y vigilancia.','<rect width="160" height="100" fill="#16241d"/><g fill="#0a110d"><rect x="20" width="10" height="100"/><rect x="58" width="14" height="100"/><rect x="100" width="10" height="100"/><rect x="132" width="14" height="100"/></g>'],
+['Inclinadas','Transmiten dinamismo, agitación y sensación de peligro.','<rect width="160" height="100" fill="#2a1a1a"/><path d="M0 100L160 30V0H100L0 70Z" fill="#a8452f"/><path d="M0 100L130 100 160 60" stroke="#e8a23a" stroke-width="3" fill="none"/>'],
+['Curvas','Transmiten dinamismo y sensualidad.','<rect width="160" height="100" fill="#1d1830"/><path d="M-10 80Q40 10 80 55T170 25" stroke="#d96aa0" stroke-width="10" fill="none"/><path d="M-10 95Q40 40 80 80T170 55" stroke="#6a5ad9" stroke-width="6" fill="none"/>']];
+$('#lg').innerHTML=LG.map(l=>`<div><div class="fr"><svg viewBox="0 0 160 100">${l[2]}</svg></div><p><b>${l[0]}.</b> ${l[1]}</p></div>`).join('');
+/* movimientos */
+const cam=(r,c='')=>`<g transform="rotate(${r})"><path class="cn ${c}" d="M8 0L95 -30V30Z"/><rect class="cb" x="-9" y="-6" width="18" height="12" rx="2"/><path class="cb" d="M9 -4L15 -8V8L9 4Z"/></g>`;
+const dot=(x,y,c,r=6)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/>`;
+const tree=x=>`<rect x="${x-4}" y="95" width="8" height="35" fill="#4a3426"/><circle cx="${x}" cy="88" r="24" fill="#3f7f5f"/>`;
+const per=x=>`<circle cx="${x}" cy="88" r="9" fill="#e0b48f"/><rect x="${x-12}" y="98" width="24" height="34" rx="6" fill="#8f3a2c"/>`;
+const hou=x=>`<rect x="${x-34}" y="82" width="68" height="48" fill="#7b8d9b"/><path d="M${x-40} 82L${x} 52L${x+40} 82Z" fill="#4e5f6c"/><rect x="${x-8}" y="104" width="16" height="26" fill="#1c242a"/>`;
+const mt='<path d="M-300 130V100L-200 70 -90 105 20 60 150 110 260 75 400 115 520 80V130Z" fill="#2b4a5c"/>';
+const sky='<rect width="320" height="180" fill="url(#gk)"/>',gr='<rect x="-400" y="130" width="1100" height="60" fill="#121d22"/>';
+const post=x=>`<rect x="${x}" y="90" width="10" height="90" fill="#080d10"/>`;
+const ctr=(c,i)=>`<g transform="translate(160 110)"><g class="${c}"><g transform="translate(-160 -110)">${i}</g></g></g>`;
+const TP=i=>`<svg viewBox="0 0 240 135"><rect width="240" height="135" fill="#0b1115"/>${i}</svg>`,RS=i=>`<svg viewBox="0 0 320 180">${sky}${i}</svg>`;
+let win='';for(let r=0;r<9;r++)for(let c=0;c<5;c++)win+=`<rect x="${100+c*26}" y="${-90+r*24}" width="14" height="14" fill="${(r*5+c)%3?'#4b5d68':'#e8a23a'}"/>`;
+const MV=[['Paneo','Físico','La cámara gira de izquierda a derecha (o al revés) sobre su propio eje, sin desplazarse. Sirve para describir paisajes o seguir personajes. Todo el cuadro se desliza a la vez.',
+TP(`${dot(50,28,'#3f7f5f',8)}${dot(120,28,'#e0845a')}<rect x="182" y="20" width="16" height="16" fill="#7b8d9b"/><g transform="translate(120 118)"><g class="a-pan">${cam(-90)}</g></g>`),
+RS(`<g class="r-pan">${mt}${gr}${tree(0)}${per(160)}${hou(320)}</g>`)],
+['Tilt','Físico','La cámara gira sobre el trípode en vertical. Tilt up (hacia arriba) sirve para mostrar altura; tilt down (hacia abajo), para mostrar detalles o profundidad. El cuadro se desliza en vertical.',
+TP(`<path d="M20 105H225" stroke="#3a4a54"/><rect x="170" y="8" width="34" height="97" fill="#2b3a45"/>${dot(130,100,'#e0845a')}<g transform="translate(40 88)"><g class="a-tl">${cam(0)}</g></g>`),
+RS(`<g class="r-tl">${gr}<rect x="90" y="-100" width="140" height="230" fill="#26323b"/>${win}${per(60)}</g>`)],
+['Travelling','Físico','La cámara se desplaza realmente por el espacio, por ejemplo sobre rieles, y acompaña al personaje. Lo cercano pasa más rápido que lo lejano; este efecto se llama paralaje.',
+TP(`<path d="M30 126H210" stroke="#4a5a64" stroke-dasharray="3 3"/>${dot(70,22,'#52707e',5)}${dot(120,22,'#52707e',5)}${dot(170,22,'#52707e',5)}${dot(120,62,'#e0845a')}<rect x="55" y="88" width="9" height="9" fill="#7b8d9b"/><rect x="115" y="88" width="9" height="9" fill="#7b8d9b"/><rect x="175" y="88" width="9" height="9" fill="#7b8d9b"/><g transform="translate(120 118)"><g class="a-tv">${cam(-90)}</g></g>`),
+RS(`<g class="r-t1">${mt}</g>${gr}<g class="r-t2">${per(160)}</g><g class="r-t3">${[-100,10,120,230,340,450].map(post).join('')}</g>`)],
+['Dolly','Físico','El equipo se acerca (dolly in) o se aleja (dolly out) del sujeto. Cambia la perspectiva real: lo cercano crece mucho más que el fondo.',
+TP(`<path d="M30 20H210" stroke="#52707e" stroke-width="3"/>${dot(120,44,'#e0845a')}<rect x="60" y="68" width="9" height="9" fill="#7b8d9b"/><rect x="171" y="68" width="9" height="9" fill="#7b8d9b"/><g transform="translate(120 118)"><g class="a-dl">${cam(-90)}</g></g>`),
+RS(`${ctr('r-d1',mt+gr)}${ctr('r-d2',tree(60)+per(160)+tree(260))}${ctr('r-d3',post(40)+post(270))}`)],
+['Zoom','Óptico','La cámara no se mueve: la lente acerca (zoom in) o aleja (zoom out) el sujeto. Todo crece por igual y la imagen se comprime, porque cambia el ángulo de visión y no la perspectiva.',
+TP(`<path d="M30 20H210" stroke="#52707e" stroke-width="3"/>${dot(120,44,'#e0845a')}<rect x="60" y="68" width="9" height="9" fill="#7b8d9b"/><rect x="171" y="68" width="9" height="9" fill="#7b8d9b"/><g transform="translate(120 118)">${cam(-90,'a-zm')}</g>`),
+RS(ctr('r-z',mt+gr+tree(60)+per(160)+tree(260)+post(40)+post(270)))]];
+MV.push(['Travelling circular','Físico','La cámara se desplaza en círculo alrededor del personaje, que queda en el centro mientras el fondo gira. Se usa con intención romántica o para transmitir sensación de encierro.',
+TP(`<circle cx="120" cy="68" r="46" fill="none" stroke="#4a5a64" stroke-dasharray="3 4"/>${dot(120,68,'#e0845a',9)}<g transform="translate(120 68)"><g class="a-or"><g transform="translate(0 -46)">${cam(90)}</g></g></g>`),
+RS(`<g class="r-pan">${mt}${gr}${tree(0)}${hou(320)}</g>${per(160)}`)],
+['Grúa','Físico','La cámara va montada en un brazo articulado que sube o baja sobre la acción. Se usa en deportes, conciertos y escenas amplias: la imagen se abre y se ve todo desde arriba.',
+TP(`<path d="M10 118H230" stroke="#3a4a54"/>${dot(180,112,'#e0845a')}<rect x="28" y="106" width="24" height="12" fill="#4a5a64"/><g transform="translate(40 108)"><g class="a-gr"><path d="M0 0H120" stroke="#9aa5ab" stroke-width="4"/><g transform="translate(120 0)">${cam(40)}</g></g></g>`),
+RS(ctr('r-gr',mt+gr+tree(60)+per(160)+tree(260)))]);
+$('#mb').innerHTML=MV.map(m=>`<button>${m[0]}</button>`).join('');
+function mvs(i){const m=MV[i];$('#mp').innerHTML=`<h3>${m[0]}</h3><small class="k">${m[1]}</small><p style="margin:6px 0 18px">${m[2]}</p><div class="two"><div><div class="fr">${m[3]}</div><p class="cap">Dónde y cómo se mueve la cámara</p></div><div><div class="fr">${m[4]}</div><p class="cap">Lo que ve la cámara</p></div></div>`;document.querySelectorAll('#mb button').forEach((b,j)=>b.classList.toggle('on',i==j))}
+document.querySelectorAll('#mb button').forEach((b,i)=>b.onclick=()=>mvs(i));mvs(0);
+/* luz */
+const LT={s:'Es una luz difusa. Reduce los contrastes, deja ver los detalles en las sombras y da un aspecto agradable a las personas. Es menos dramática que la luz dura.',d:'Es una luz direccional, de claro y oscuro. Marca las formas con fuerte contraste: una parte del rostro queda en sombra y la persona puede verse amenazante, como cuando alguien se ilumina con una linterna bajo la cara para asustar de noche.'};
+function lz(m){$('#lh').classList.toggle('hard',m=='d');$('#l1').classList.toggle('on',m=='s');$('#l2').classList.toggle('on',m=='d');$('#lt').textContent=LT[m]}
+$('#l1').onclick=()=>lz('s');$('#l2').onclick=()=>lz('d');lz('s');
+const C=[['Blanco','#f4efe6','c','Luz y claridad.',['limpieza','pureza','paz','calma'],'<path fill="currentColor" d="M30 84a20 20 0 0 1 4-40 28 28 0 0 1 54 6 18 18 0 0 1-2 34z"/>'],
+['Amarillo','#e8b92f','c','El color del sol: llama la atención por su brillantez.',['alegría','vitalidad','diversión','riqueza'],'<circle cx="60" cy="60" r="22" fill="currentColor"/><path d="M60 12v14M60 94v14M12 60h14M94 60h14M26 26l10 10M84 84l10 10M94 26L84 36M36 84L26 94" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>'],
+['Naranja','#e2772f','c','Sus tonos suaves dan una sensación agradable de ambiente familiar y de confort. Como es muy visible, también señala peligros.',['confort','familiar','atención','peligro'],'<path d="M60 18L104 96H16Z" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/><path d="M60 46v26M60 82v2" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>'],
+['Rojo','#c93a2a','c','El color de la sangre y del fuego. Comunica excitación, agresividad y movimiento, y llama la atención.',['acción','coraje','pasión','dinamismo','peligro'],'<path fill="currentColor" d="M60 12C70 40 92 52 90 80c-2 22-18 30-30 30S30 100 30 82c0-14 8-22 14-30 2 10 8 14 12 14-6-20-2-36 4-52z"/>'],
+['Verde','#3f8a5a','f','El color de la naturaleza: tranquiliza y relaja.',['esperanza','salud','vitalidad','seguridad'],'<path fill="currentColor" d="M22 98C22 52 52 24 98 22 98 68 70 96 22 98Z"/><path d="M22 98L70 50" stroke="var(--bgc)" stroke-width="4"/>'],
+['Azul','#2f63a8','f','El color del cielo y del mar. Claro relaja y da frescor; oscuro resulta triste.',['autoridad','lealtad','dignidad','infinito','confianza'],'<g fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"><path d="M10 44q12-20 25 0t25 0 25 0 25 0"/><path d="M10 68q12-20 25 0t25 0 25 0 25 0"/><path d="M10 92q12-20 25 0t25 0 25 0 25 0"/></g>'],
+['Violeta','#7a52a0','f','Se relaciona con ambientes elegantes o lujosos.',['elegancia','lujo'],'<path fill="currentColor" d="M30 40h60l18 22-48 46L12 62z"/><path d="M12 62h96M42 40l-12 22 30 46 30-46-12-22" stroke="var(--bgc)" stroke-width="3" fill="none"/>'],
+['Gris','#8a8d91','f','Color neutro y metálico. También evoca la falta de color.',['neutro','tristeza','pobreza'],'<path fill="currentColor" d="M30 70a18 18 0 0 1 3-36 26 26 0 0 1 50 6 16 16 0 0 1-2 30z"/><path d="M40 84l-4 14M60 84l-4 14M80 84l-4 14" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>'],
+['Negro','#1a1a1a','f','En nuestra sociedad tiene dos significados principales, casi opuestos.',['misterio','miedo','soledad','poder','elegancia'],'<path fill="currentColor" d="M84 90A40 40 0 1 1 52 24a32 32 0 0 0 32 66z"/>']];
+const EX=['Un hospital o una escena tranquila de sueño: todo limpio y sereno.','Un anuncio de verano o un logo que debe llamar la atención al instante.','La luz cálida de una cocina en una escena familiar, o el chaleco de seguridad en una obra.','Una persecución, un cartel de oferta o una señal de peligro.','Un bosque donde el personaje por fin se calma.','El uniforme de un banco o de la policía (autoridad y confianza); oscuro, una noche triste.','Una joya, un perfume de lujo o una mansión elegante.','Una ciudad sin vida un día de lluvia, o un personaje desanimado.','El villano del que no se ve la cara (miedo) o un esmoquin (elegancia).'];
+$('#sw').innerHTML=C.map(c=>`<button style="background:${c[1]}" aria-label="${c[0]}"></button>`).join('');
+function cl(i){const c=C[i],[r,g,b]=[1,3,5].map(k=>parseInt(c[1].substr(k,2),16)),ink=(r*.299+g*.587+b*.114)>150?'#14191d':'#fff',cb=$('#cb');cb.style.backgroundColor=c[1];cb.style.color=ink;cb.style.setProperty('--bgc',c[1]);
+$('#ci').innerHTML=c[5];$('#cN').textContent=c[0];$('#cT').textContent='COLOR '+(c[2]=='c'?'CÁLIDO':'FRÍO');$('#cD').textContent=c[3];$('#cX').textContent=EX[i];$('#cC').innerHTML=c[4].map(w=>`<i>${w}</i>`).join('');
+$('#rb').style.transform=`scale(${c[2]=='c'?1.25:.7})`;$('#rl').textContent=c[2]=='c'?'Cálido: el espacio parece más grande, cercano y pesado.':'Frío: el espacio parece más pequeño y lejano.';
+document.querySelectorAll('#sw button').forEach((x,j)=>{x.classList.toggle('on',i==j)})}
+document.querySelectorAll('#sw button').forEach((b,i)=>b.onclick=()=>cl(i));cl(3);
+/* montaje */
+const TX={corte:['Corte en seco','Cambia de plano directamente, sin ningún elemento intermedio. Es el signo de puntuación más usado.'],fund:['Fundido en negro','La imagen se disuelve hasta llegar al negro total y de ahí surge la siguiente. Da la sensación de que termina un período de tiempo.'],encad:['Encadenado','Mientras una imagen se disuelve, la otra aparece poco a poco. Indica un paso rápido del tiempo.'],barr:['Barrido','La cámara se desplaza muy rápido y da paso a otra escena que ocurre un tiempo después.'],aper:['Apertura en negro','De una pantalla oscura va surgiendo la imagen, cada vez más luminosa. Se usa para empezar una escena.'],desenf:['Desenfoque','El plano termina desenfocándose y el siguiente comienza desenfocado y se va aclarando poco a poco.'],cong:['Congelación','La imagen se detiene de golpe, como una fotografía. Sirve para subrayar un momento. Fíjate: las nubes se quedan quietas.'],cort:['Cortinilla','Una cortina se cierra sobre la última imagen o se abre sobre la primera de la toma siguiente. Aquí se abre sobre el plano B.']};
+const TR={encad:['opacity:0','opacity:1',3000],barr:['opacity:1;transform:translateX(100%);filter:blur(8px)','opacity:1;transform:none;filter:none',1400],cort:['opacity:1;clip-path:inset(0 100% 0 0)','opacity:1;clip-path:inset(0)',2400]};
+const AE=$('#A'),B=$('#B'),O=$('#O'),hud=t=>$('#hud').textContent=t;let tm=[];
+function run(t){tm.forEach(clearTimeout);tm=[];const at=(f,ms)=>tm.push(setTimeout(f,ms));$('#tn').textContent=TX[t][0];$('#tx').textContent=TX[t][1];
+document.querySelectorAll('#tb button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));
+B.style.cssText='transition:none;opacity:0';O.style.cssText='transition:none;opacity:0';AE.style.cssText='';AE.classList.remove('frz');hud('Plano A');let d;
+at(()=>{hud(TX[t][0]);
+if(t=='corte'){B.style.opacity=1;d=0}else if(t=='fund'){O.style.cssText='transition:opacity 1.6s;opacity:1';at(()=>{B.style.cssText='transition:none;opacity:1';O.style.cssText='transition:opacity 1.6s;opacity:0'},2000);d=3600}
+else if(t=='aper'){O.style.cssText='transition:none;opacity:1';B.style.opacity=1;void O.offsetWidth;O.style.cssText='transition:opacity 2.6s;opacity:0';d=2600}else if(t=='desenf'){AE.style.cssText='transition:filter 1.4s;filter:blur(18px)';at(()=>{B.style.cssText='transition:none;opacity:1;filter:blur(18px)';AE.style.opacity=0;void B.offsetWidth;B.style.cssText='transition:filter 1.4s;opacity:1;filter:blur(0)'},1500);d=3000}else if(t=='cong'){AE.classList.add('frz');d=0}else{const r=TR[t];B.style.cssText='transition:none;'+r[0];void B.offsetWidth;B.style.cssText=`transition:all ${r[2]}ms ease;`+r[1];d=r[2]}
+if(t!='cong')at(()=>hud('Plano B'),d)},1800)}
+document.querySelectorAll('#tb button').forEach(b=>b.onclick=()=>run(b.dataset.t));
+/* sonido */
+let ac=null,nodes=[],iv=[];
+const AC=()=>ac||(ac=new(window.AudioContext||window.webkitAudioContext)());
+function stopS(){iv.forEach(clearInterval);iv=[];nodes.forEach(n=>{try{n.stop()}catch(e){}});nodes=[]}
+function tone(f,t0,d,ty,v,dest){const c=AC(),o=c.createOscillator(),g=c.createGain();o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(v,t0+.02);g.gain.exponentialRampToValueAtTime(.0001,t0+d);o.connect(g);g.connect(dest||c.destination);o.start(t0);o.stop(t0+d+.05)}
+function nbuf(){const c=AC(),b=c.createBuffer(1,c.sampleRate*2,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;return b}
+function snd(m){stopS();if(m=='sil')return;const c=AC();if(c.resume)c.resume();const T=()=>c.currentTime;
+if(m=='fx'){const s=c.createBufferSource(),f=c.createBiquadFilter(),g=c.createGain();s.buffer=nbuf();f.type='lowpass';f.frequency.value=900;g.gain.setValueAtTime(.9,T());g.gain.exponentialRampToValueAtTime(.001,T()+.5);s.connect(f);f.connect(g);g.connect(c.destination);s.start();s.stop(T()+.6);tone(70,T(),.5,'sine',.9);return}
+if(m=='doc'){const f=c.createBiquadFilter();f.type='bandpass';f.frequency.value=1500;f.Q.value=.7;f.connect(c.destination);const s=c.createBufferSource(),ng=c.createGain();ng.gain.value=.04;s.buffer=nbuf();s.loop=true;s.connect(ng);ng.connect(f);s.start();nodes.push(s);let i=0;const N=[262,330,392,330,294,349,440,349],st=()=>tone(N[i++%8],T(),.7,'triangle',.3,f);st();iv.push(setInterval(st,650));return}
+if(m=='inc'){const lp=c.createBiquadFilter();lp.type='lowpass';lp.frequency.value=320;const g=c.createGain();g.gain.value=.22;lp.connect(g);g.connect(c.destination);[55,58.3,82.4].forEach(fq=>{const o=c.createOscillator();o.type='sawtooth';o.frequency.value=fq;o.connect(lp);o.start();nodes.push(o)});const hb=()=>{tone(60,T(),.22,'sine',.8);tone(55,T()+.28,.22,'sine',.6)};hb();iv.push(setInterval(hb,1000));return}
+if(m=='asi'){const Pn=[523,587,659,784,880,784,659,587];let i=0;const st=()=>tone(Pn[i++%8],T(),.5,'triangle',.22);st();iv.push(setInterval(st,260))}}
+const SM={doc:['Música documental','Es parte del mundo de la historia: corresponde al sonido de lo que se narra, como una radio que escuchan los personajes. Suena «dentro» de la escena, algo apagada.'],inc:['Música incidental','Se usa para reforzar una situación dramática: evoca una época o un sentimiento y acompaña el ritmo de la acción. Con un zumbido grave y un pulso, la misma imagen se vuelve tensa.'],asi:['Música asincrónica','Funciona como contrapunto: dice lo contrario de lo que se ve, como música navideña sobre imágenes de guerra. El contraste impresiona al espectador.'],fx:['Efectos de sonido','Un golpe seco sobresalta y marca un momento. Los efectos no son simples complementos: tienen una función específica dentro del mensaje.'],sil:['Silencio','También es un recurso sonoro. Cuando todo calla, la imagen cobra más peso y se siente la espera.']};
+const SK=['doc','inc','asi','fx','sil'],SN=['Documental','Incidental','Asincrónica','Efecto de sonido','Silencio'];
+$('#sb').innerHTML=SK.map((k,i)=>`<button>${SN[i]}</button>`).join('');$('#lts').innerHTML='<i></i>'.repeat(12);
+function sm(m){snd(m);$('#sf').className='fr m-'+m+(m=='sil'?'':' on');if(m=='fx'){$('#sf').classList.add('fx');setTimeout(()=>$('#sf').classList.remove('fx'),600)}
+$('#sT').textContent=SM[m][0];$('#sX').textContent=SM[m][1];$('#sh').textContent=SM[m][0];document.querySelectorAll('#sb button').forEach((b,j)=>b.classList.toggle('on',SK[j]==m))}
+document.querySelectorAll('#sb button').forEach((b,i)=>b.onclick=()=>sm(SK[i]));sm('sil');
+const bgr='<rect width="400" height="225" fill="#0b1115"/>',fm=(x,fill)=>`<rect x="${x}" y="52" width="110" height="120" rx="4" fill="${fill}" stroke="#3a4a54"/>`;
+const RC=[['Elipsis','Se omite un elemento que, aun así, se adivina. Por ejemplo, se pasa del personaje que sube al auto a su llegada, y el espectador imagina el viaje.',`${bgr}${fm(20,'#16232d')}<rect x="38" y="118" width="74" height="28" rx="7" fill="#8a3a2e"/><circle cx="56" cy="146" r="8" fill="#07090a"/><circle cx="96" cy="146" r="8" fill="#07090a"/><circle cx="75" cy="96" r="10" fill="#e0b48f"/><rect x="145" y="52" width="110" height="120" rx="4" fill="none" stroke="#e8a23a" stroke-dasharray="6 5"/><text x="200" y="116" font-size="13" fill="#e8a23a" text-anchor="middle">el viaje</text><text x="200" y="134" font-size="13" fill="#e8a23a" text-anchor="middle">no se muestra</text>${fm(270,'#16232d')}<rect x="298" y="82" width="54" height="90" fill="#26323b"/><rect x="310" y="96" width="10" height="12" fill="#ffcf70"/><rect x="330" y="96" width="10" height="12" fill="#ffcf70"/><rect x="310" y="118" width="10" height="12" fill="#ffcf70"/><g font-size="12" fill="#9aa5ab" text-anchor="middle"><text x="75" y="195">Sube al auto</text><text x="325" y="195">Llega a su destino</text></g>`],
+['Metonimia','Se sustituye un elemento por otro con el que tiene relación de causa y efecto, de proximidad o de contexto. La sinécdoque es un tipo de metonimia que toma la parte por el todo: mostrar solo los zapatos del asesino caminando basta para indicar que se acerca.','<defs><linearGradient id="dr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8a23a" stop-opacity=".75"/><stop offset="1" stop-color="#e8a23a" stop-opacity="0"/></linearGradient></defs><rect width="400" height="225" fill="#080a0c"/><polygon points="150,0 250,0 330,225 70,225" fill="url(#dr)"/><rect y="170" width="400" height="55" fill="#0d1114"/><g fill="#020202"><path d="M110 200v-16q0-10 12-10h14l12 12h22q10 0 10 14z"/><path d="M225 188v-14q0-9 11-9h13l11 11h20q9 0 9 12z"/></g>'],
+['Metáfora','Se identifica una cosa con otra con la que guarda semejanza, sin usar «como»: la ciudad es una jungla.',`${bgr}<g fill="#26323b"><rect x="30" y="90" width="30" height="90"/><rect x="66" y="56" width="34" height="124"/><rect x="106" y="100" width="28" height="80"/></g><g fill="#ffcf70"><rect x="74" y="70" width="7" height="9"/><rect x="86" y="70" width="7" height="9"/><rect x="74" y="92" width="7" height="9"/><rect x="38" y="106" width="7" height="9"/></g><text x="200" y="122" font-size="44" fill="#e8a23a" text-anchor="middle">=</text><g><rect x="262" y="130" width="7" height="50" fill="#4a3426"/><circle cx="266" cy="116" r="28" fill="#3f7f5f"/><rect x="316" y="140" width="7" height="40" fill="#4a3426"/><circle cx="320" cy="124" r="24" fill="#2f6a4d"/><rect x="352" y="146" width="6" height="34" fill="#4a3426"/><circle cx="355" cy="132" r="20" fill="#4a9a70"/></g>`],
+['Símbolo','Es un tipo de metáfora que representa un valor o un conjunto de valores de una sociedad. Su significado va más allá del normal para evocar otra realidad: la balanza representa la justicia.',`${bgr}<g stroke="#e8a23a" stroke-width="4" fill="none" stroke-linecap="round"><path d="M200 50V180M150 182H250M110 76H290"/><path d="M110 76L88 140M110 76L132 140M290 76L268 140M290 76L312 140" stroke-width="2"/></g><circle cx="200" cy="48" r="8" fill="#e8a23a"/><path d="M80 140q18 28 40 0ZM260 140q18 28 40 0Z" fill="#e8a23a"/>`]];
+$('#rbt').innerHTML=RC.map(r=>`<button>${r[0]}</button>`).join('');
+function rc(i){const r=RC[i];$('#rf').innerHTML=`<svg viewBox="0 0 400 225">${r[2]}</svg>`;$('#rT').textContent=r[0];$('#rX').textContent=r[1];document.querySelectorAll('#rbt button').forEach((b,j)=>b.classList.toggle('on',i==j))}
+document.querySelectorAll('#rbt button').forEach((b,i)=>b.onclick=()=>rc(i));rc(1);
+const DM=[['Morfológica','Las palabras del idioma','Son los elementos con los que se construye el mensaje: las imágenes (puntos, líneas, formas, colores) y los sonidos (voz, música, efectos, silencio). Así como un texto se arma con nombres, verbos y adjetivos, un audiovisual se arma con estos ingredientes.','Ejemplo: una foto del paisaje y el sonido del viento son elementos morfológicos.'],
+['Sintáctica','La gramática','Mezclar palabras sueltas no basta: hacen falta normas para que el receptor comprenda. Aquí entran el plano, el ángulo, la composición, el ritmo, la luz, el color y los movimientos de cámara, y todos influyen en el significado final del mensaje.','Ejemplo: el mismo personaje en picado se ve débil; en contrapicado, poderoso.'],
+['Semántica','El significado','Qué quiere decir lo que vemos. Hay un significado denotativo (objetivo) y uno connotativo (subjetivo, según quien interpreta). El sentido de cada elemento depende del anterior y del siguiente, y los recursos estilísticos lo modifican.','Ejemplo: una balanza en pantalla denota un objeto y connota justicia.'],
+['Estética','La belleza','Además de narrar y significar, todos los elementos formales de un producto audiovisual cumplen una función estética: la luz, el color, la composición y el sonido se eligen también por cómo se ven y se sienten.','Ejemplo: un atardecer dorado se elige porque da atmósfera, no solo para iluminar.'],
+['Didáctica','Aprender con imágenes','Cuando el material tiene una intención pedagógica se suman recursos que facilitan comprender y asimilar los contenidos: organizadores previos, resúmenes y preguntas, que aseguran el aprendizaje y mantienen la atención.','Ejemplo: un video que empieza con una pregunta y termina con un resumen.']];
+$('#dm').innerHTML=DM.map(d=>`<button>${d[0]}</button>`).join('');
+function dmx(i){const d=DM[i];$('#dS').textContent=d[1].toUpperCase();$('#dT').textContent=d[0];$('#dP').textContent=d[2];$('#dE').textContent=d[3];document.querySelectorAll('#dm button').forEach((b,j)=>b.classList.toggle('on',i==j))}
+document.querySelectorAll('#dm button').forEach((b,i)=>b.onclick=()=>dmx(i));dmx(0);
+const RV=[[800,450,900],[800,595,450],[800,551,150],[800,520,90],[846,615,36],[800,592,250]];let rhT=[];
+function rhy(on){rhT.forEach(clearInterval);rhT=[];if(!on)return;[['#r1',1000],['#r2',4000]].forEach(([id,ms])=>{let n=0;const el=$(id),tg=$(id+'t'),f=()=>{const c=RV[n%RV.length],hh=c[2],w=hh*16/9;el.setAttribute('viewBox',`${c[0]-w/2} ${c[1]-hh/2} ${w} ${hh}`);tg.textContent='Cortes: '+(n+1);n++};f();rhT.push(setInterval(f,ms))})}
+/* navegación */
+const S=[...document.querySelectorAll('.s')],N=['Inicio','Qué es el lenguaje','Planos','Ángulos','Composición','Cámara en movimiento','Luz y color','Montaje y ritmo','Sonido y significado','Otros conceptos'];
+var cur=0,bz;
+function tcu(){const d=document.documentElement,p=(cur+Math.min(1,scrollY/Math.max(1,d.scrollHeight-innerHeight)))/S.length,t=Math.floor(p*129599),z=n=>String(n).padStart(2,'0');$('#tc').textContent=`${z(Math.floor(t/86400))}:${z(Math.floor(t/1440)%60)}:${z(Math.floor(t/24)%60)}:${z(t%24)}`}
+addEventListener('scroll',tcu,{passive:true});
+$('#nv').innerHTML=N.map((n,i)=>`<button><b>${String(i+1).padStart(2,'0')}</b>${n}</button>`).join('');
+function paint(){S.forEach((s,j)=>s.classList.toggle('on',j==cur));document.querySelectorAll('#nv button').forEach((b,j)=>b.classList.toggle('on',j==cur));$('#sd').classList.remove('open');$('#mt').textContent=String(cur+1).padStart(2,'0')+' · '+N[cur];$('#pgb').style.width=((cur+1)/S.length*100)+'%';$('#bk').disabled=cur==0;$('#fw').disabled=cur==S.length-1;scrollTo({top:0,behavior:'instant'});history.replaceState(null,'','#'+S[cur].id);stopS();sm('sil');if(cur==0)hero();rhy(S[cur].id=='montaje');if(S[cur].id=='montaje')run('corte');tcu()}
+function show(i,first){i=Math.max(0,Math.min(S.length-1,i));if(i==cur&&!first)return;clearTimeout(bz);cur=i;if(first||RM){paint();return}
+const c=$('#cut');c.classList.add('k');bz=setTimeout(()=>{paint();setTimeout(()=>c.classList.remove('k'),120)},420)}
+$('#nv').onclick=e=>{const b=e.target.closest('button');if(b)show([...$('#nv').children].indexOf(b))};
+$('#mt').onclick=()=>$('#sd').classList.toggle('open');
+$('#bk').onclick=()=>show(cur-1);$('#fw').onclick=()=>show(cur+1);$('#go').onclick=()=>show(1);
+addEventListener('keydown',e=>{if(/INPUT|TEXTAREA/.test(e.target.tagName))return;if(e.key=='ArrowRight')show(cur+1);if(e.key=='ArrowLeft')show(cur-1)});
+show(Math.max(0,S.findIndex(s=>'#'+s.id==location.hash)),true);
+</script>
+</body>
+</html>
